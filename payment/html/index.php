@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php 
 	  include("connection.php");
 
@@ -72,6 +73,8 @@
 </head>
 <body>
 
+	<?php require_once('../../header.php'); ?>
+<div>
 	<div class="container">
 		<table class="table table-striped">
 
@@ -121,8 +124,14 @@
 					</tbody>
 				</table>
 			</div>
+			<div>
+				<?php require_once('../../footer.php'); ?>			
+			</div>
 		</div>
 		
+</div>	
+
+
 		<!-- JavaScript at the bottom for fast page loading -->
 		
 		<!-- Grab jQuery from Google -->
@@ -130,6 +139,6 @@
 		
 		<!-- Example JavaScript -->
 		<script src="../js/03.js"></script>
-
 </body>
 </html>
+

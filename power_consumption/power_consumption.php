@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 
 <html>
@@ -11,8 +13,12 @@
   </head>
 
   <body>
+
+    <?php require_once('../header.php'); ?>
   
     <h2 align="center">Power consumption</h2>
+
+    <div style="overflow-y: scroll;  min-height: 600px; max-height: 600px;">
 
     <div class="row">
       <div class="col-sm-12" style="padding: 20px; margin-left: 40%;">
@@ -30,13 +36,13 @@
 
 
     <!-- dat map tab -->
-    <div  id="dayMap" class="tabcontent active" style="margin-top: 150px; ">
+    <div  id="dayMap" class="tabcontent active" style="margin-top: 50px; ">
     <div class="container">
 
       <div class="row">
 
         <div class="col-sm-12">
-          <div id="chart-container-day" style="width: 1000px;">
+          <div id="chart-container-day">
 
           </div>
         </div>
@@ -47,7 +53,7 @@
     </div>
 
     <!-- dat map tab -->
-    <div id="weekMap" class="tabcontent" style="margin-top: 150px;">
+    <div id="weekMap" class="tabcontent" style="margin-top: 50px;">
     <div class="container">
 
       <div class="row">
@@ -70,7 +76,7 @@
     </div>
 
     <!-- meter list tab -->
-    <div id="monthMap" class="tabcontent" style="margin-top: 150px;">
+    <div id="monthMap" class="tabcontent" style="margin-top: 50px;">
     <div class="container">
 
       <div class="row">
@@ -117,7 +123,9 @@
           evt.currentTarget.className += " active";
 
       }
-    </script>   
+    </script>  
+    </div>
+    <?php require_once('../footer.php'); ?> 
 
   </body>
 

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require_once('../inc/connection.php'); ?>
 <?php 
 		$first_name = "";
@@ -21,7 +22,7 @@
 		$clientID = $_GET['client_id'];
 
 	$query1 = "SELECT * FROM client_tb WHERE client_id = {$clientID}";
-	echo $query1;
+	//echo $query1;
 	
 	$result_set = mysqli_query($connection,$query1);
 
@@ -97,8 +98,10 @@
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
+
+<?php require_once('../header.php'); ?>
 	
-	<div class="container">
+	<div class="container" style="margin-top: 48px; margin-bottom: 48px;">
 		<form action="viewClient.php" class="well form-horizontal" method="post" id="contact-form">
 			<fieldset>
 				<legend><p class="text-center"><i class="glyphicon glyphicon-user"></i>View Client</p></legend>
@@ -197,8 +200,8 @@
 							<label class="col-sm-2 col-xs-12 control_label"><p>Meter ID</p></label>
 							<div class="col-sm-9 inputGroupContainer">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-flag"></i></span>
-									<input type="text" name="meter_ID" value=<?php echo $meter_ID; ?> class="form-control" readonly>
+									<a href="../payment/html/client_payment.php?meter_id=<?php echo $meter_ID; ?>"><?php echo $meter_ID; ?></a>
+									
 								</div>
 							</div>
 						</div>
@@ -243,14 +246,13 @@
 							<?php echo $purpose_final; ?>
 						</div>
 
-						
+
 					<br>
-
-				
-
 			</fieldset>
 		</form>
 	</div>
+
+<?php require_once('../footer.php'); ?>
 
 </body>
 </html>

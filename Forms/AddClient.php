@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require_once('../inc/connection.php'); ?>
 <?php 
 
@@ -48,8 +49,11 @@
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
+
+
+    <?php require_once('../header.php'); ?>
 	
-	<div class="container">
+	<div class="container" style="overflow-y: scroll; min-height: 680px; max-height: 680px;">
 		<form action="addClient.php" class="well form-horizontal" method="post" id="contact-form">
 			<fieldset>
 				<legend><p class="text-center"><i class="glyphicon glyphicon-plus"></i>Add Client</p></legend>
@@ -239,6 +243,9 @@
 			</fieldset>
 		</form>
 	</div>
+
+
+    <?php require_once('../footer.php'); ?>
 
 </body>
 </html>

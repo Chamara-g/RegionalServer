@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <?php 
   
   include("connection.php");
@@ -43,26 +45,14 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
-    </ul>
-  </div>
-</nav>
+  <?php require_once('../../header.php'); ?>
   
-<div class="container">
+<div class="container" >
   <div class="jumbotron heading">
     <h3>Details of breakdown of electricity</h3>
     <p></p>
   </div>
-  <div class="details col-sm-12">
+  <div class="details col-sm-12"  style="overflow-y: scroll;  min-height: 484px; max-height: 484px;">
     <div class="names col-sm-6">
       <h3>Details</h3>
       <table class="table table-striped">
@@ -117,7 +107,7 @@
     </div>
   </div>
 </div>
-<div class="fotter">
+  <?php require_once('../../footer.php'); ?>
   <p></p>
 </div>
 </body>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require_once('../inc/connection.php'); ?>
 
 <?php 
@@ -69,7 +70,7 @@ $clientID = "";
 		$clientID = $_GET['client_id'];
 
 	$query1 = "SELECT * FROM client_tb WHERE client_id = {$clientID}";
-	echo $query1;
+	//echo $query1;
 	
 	$result_set = mysqli_query($connection,$query1);
 
@@ -145,8 +146,10 @@ $clientID = "";
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
+
+	<?php require_once('../header.php'); ?>
 	
-	<div class="container">
+	<div class="container" style="margin-top: 13px; margin-bottom: 13px;">
 		<form action="editClient.php?client_id=<?php echo $clientID ; ?>" class="well form-horizontal" method="post" id="contact-form">
 			<fieldset>
 				<legend><p class="text-center"><i class="glyphicon glyphicon-user"></i>View Client</p></legend>
@@ -306,6 +309,8 @@ $clientID = "";
 			</fieldset>
 		</form>
 	</div>
+
+	<?php require_once('../footer.php'); ?>
 
 </body>
 </html>

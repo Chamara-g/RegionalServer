@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require_once('../inc/connection.php'); ?>
 <?php 
 	
@@ -33,7 +34,9 @@
 </head>
 <body>
 	
-	<div class="container">
+		<?php require_once('../header.php'); ?>
+
+	<div class="container" style="margin-top: 153px; margin-bottom: 153px;">
 		<form action="addAdmin.php" class="well form-horizontal" method="post" id="contact-form">
 			<fieldset>
 				<legend><p class="text-center"><i class="glyphicon glyphicon-plus"></i>Add Admin</p></legend>
@@ -123,7 +126,7 @@
 		});
 	});
 </script>
-
+	<?php require_once('../footer.php'); ?>
 
 </body>
 </html>
