@@ -52,7 +52,7 @@
     <h3>Details of breakdown of electricity</h3>
     <p></p>
   </div>
-  <div class="details col-sm-12"  style="overflow-y: scroll;  min-height: 484px; max-height: 484px;">
+  <div class="details col-sm-12" >
     <div class="names col-sm-6">
       <h3>Details</h3>
       <table class="table table-striped">
@@ -108,7 +108,6 @@
   </div>
 </div>
   <?php require_once('../../footer.php'); ?>
-  <p></p>
 </div>
 </body>
 </html>
