@@ -22,17 +22,41 @@
 
 		$address = $addr_line1 ." " .$addr_line2 ." " .$addr_line3;
 
+		//client table
 		$query = "INSERT INTO client_tb (first_name,last_name,address,home_phone,mobile_phone,NIC,email,tax_number,deed_no,current,purpose,meter_id,is_delete) VALUES ('{$first_name}','{$last_name}','{$address}','{$home_phone}','{$mobile_phone}','{$nic}','{$email}','{$tax_number}','{$deed_number}','{$current}','{$purpose}',{$meter_ID},{$is_delete})";
-
-/*
-		$query = "INSERT INTO client_details (first_name,last_name,addr_line1,addr_line2,addr_line3,home_phone,mobile_phone,nic,email,tax_no,deed_no,current,purpose,meter_ID,is_delete) VALUES ('{$first_name}','{$last_name}','{$addr_line1}','{$addr_line2}','{$addr_line3}','{$home_phone}','{$mobile_phone}','{$nic}','{$email}','{$tax_number}','{$deed_number}','{$current}','{$purpose}',{$meter_ID},{$is_delete})";
-
-*/
 
 		$result = mysqli_query($connection,$query);
 
 		if($result){
-			header("Location:../Admin_search/admin_search.php");
+
+			//get client_id
+			$queryNew = "SELECT * FROM client_tb WHERE meter_id = {$meter_ID} ";
+
+			$result = mysqli_query($connection,$queryNew);
+
+			//$new_meter = array();		
+			$meter_id = "";
+			$client_id = "";
+			$password = "";
+
+			while($row = mysqli_fetch_assoc($result)){
+
+			/*	$new_meter[] = array(
+					'meter_id' => $row["meter_id"],
+					'client_id' => $row["client_id"],
+					'password' => "Gihan123"
+				);*/
+				$meter_id = $row["meter_id"];
+				$client_id = $row["client_id"];
+				$password = "gundu";
+
+				//add to meter table
+				$queryToMeter = "INSERT INTO meter_tb(meter_id,client_id,password,meter_type) VALUES ('".$row["meter_id"]."','".$row["client_id"]."','$password','".$row["purpose"]."')";
+				mysqli_query($connection,$queryToMeter);
+
+			}
+			header("Location: http://localhost/MyphpActivities/elec_meter/provincialReq/getnewMeters.php?meter_id=$meter_id&client_id=$client_id&password=$password");
+			//header("Location:../Admin_search/admin_search.php");
 			//echo "successfully added";
 		}else{
 			echo "Error";
